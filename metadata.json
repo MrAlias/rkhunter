@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "MrAlias",
   "summary": "Manages the rkhunter tool's usage and configuration.",
-  "license": "GPLv3",
+  "license": "MIT",
   "source": "https://github.com/MrAlias/rkhunter",
   "project_page": "https://github.com/MrAlias/rkhunter",
   "issues_url": "https://github.com/MrAlias/rkhunter/issues",
