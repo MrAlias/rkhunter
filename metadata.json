@@ -1,0 +1,14 @@
+{
+  "name": "MrAlias-rkhunter",
+  "version": "0.1.0",
+  "author": "MrAlias",
+  "summary": "Manages the rkhunter tool's usage and configuration.",
+  "license": "GPLv3",
+  "source": "https://github.com/MrAlias/rkhunter",
+  "project_page": "https://github.com/MrAlias/rkhunter",
+  "issues_url": "https://github.com/MrAlias/rkhunter/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
