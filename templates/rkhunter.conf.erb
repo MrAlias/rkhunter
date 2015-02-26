@@ -1,0 +1,238 @@
+# ****************************************************************************
+# Managed by Puppet. Modifications will be overwritten.
+# ****************************************************************************
+
+<% if @rotate_mirrors -%>
+ROTATE_MIRRORS=<%= @rotate_mirrors %>
+<% end -%>
+<% if @update_mirrors -%>
+UPDATE_MIRRORS=<%= @update_mirrors %>
+<% end %>
+<% if @mirrors_mode -%>
+MIRRORS_MODE=<%= @mirrors_mode %>
+<% end %>
+<% if @mail-on-warning -%>
+MAIL-ON-WARNING="<%= @mail_on_warning.join(' ') %>"
+<% end %>
+<% if @mail_cmd -%>
+MAIL_CMD=<%= @mail_cmd %>
+<% end %>
+<% if @tmpdir -%>
+TMPDIR=<%= @tmpdir %>
+<% end %>
+<% if @dbdir -%>
+DBDIR="<%= @dbdir.join(' ') %>"
+<% end %>
+<% if @scriptdir -%>
+SCRIPTDIR=<%= @scriptdir %>
+<% end %>
+<% if @bindir -%>
+BINDIR=<%= @bindir %>
+<% end %>
+<% if @language -%>
+LANGUAGE=<%= @language %>
+<% end %>
+<% if @update_lang -%>
+UPDATE_LANG="<%= @update_lang.join(' ') %>"
+<% end %>
+<% if @logfile -%>
+LOGFILE=<%= @logfile %>
+<% end %>
+<% if @append_log -%>
+APPEND_LOG=<%= @append_log %>
+<% end %>
+<% if @copy_log_on_error -%>
+COPY_LOG_ON_ERROR=<%= @copy_log_on_error %>
+<% end %>
+<% if @use_syslog -%>
+USE_SYSLOG=<%= @use_syslog %>
+<% end %>
+<% if @color_set2 -%>
+COLOR_SET2=<%= @color_set2 %>
+<% end %>
+<% if @auto_x_detect -%>
+AUTO_X_DETECT=<%= @auto_x_detect %>
+<% end %>
+<% if @whitelisted_is_white -%>
+WHITELISTED_IS_WHITE=<%= @whitelisted_is_white %>
+<% end %>
+<% if @allow_ssh_root_user -%>
+ALLOW_SSH_ROOT_USER=<%= @allow_ssh_root_user %>
+<% end %>
+<% if @allow_ssh_prot_v1 -%>
+ALLOW_SSH_PROT_V1=<%= @allow_ssh_prot_v1 %>
+<% end %>
+<% if @ssh_config_dir -%>
+SSH_CONFIG_DIR=<%= @ssh_config_dir %>
+<% end %>
+<% if @enable_tests -%>
+ENABLE_TESTS="<%= @enable_tests.join(' ') %>"
+<% end %>
+<% if @disable_tests -%>
+DISABLE_TESTS="<%= @disable_tests.join(' ') %>"
+<% end %>
+<% if @hash_func -%>
+HASH_FUNC="<%= @hash_func %>"
+<% end %>
+<% if @hash_fld_idx -%>
+HASH_FLD_IDX=<%= @hash_fld_idx %>
+<% end %>
+<% if @pkgmgr -%>
+PKGMGR=<%= @pkgmgr %>
+<% end %>
+<% if @pkgmgr_no_vrfy -%>
+PKGMGR_NO_VRFY="<%= @pkgmgr_no_vrfy.join(' ') %>"
+<% end %>
+<% if @ignore_prelink_dep_err -%>
+IGNORE_PRELINK_DEP_ERR="<%= @ignore_prelink_dep_err.join(' ') %>"
+<% end %>
+<% if @use_sunsum -%>
+USE_SUNSUM=<%= @use_sunsum %>
+<% end %>
+<% if @user_fileprop_files_dirs -%>
+USER_FILEPROP_FILES_DIRS="<%= @user_fileprop_files_dirs.join(' ') %>"
+<% end %>
+<% if @existwhitelist -%>
+EXISTWHITELIST="<%= @existwhitelist.join(' ') %>"
+<% end %>
+<% if @attrwhitelist -%>
+ATTRWHITELIST="<%= @attrwhitelist.join(' ') %>"
+<% end %>
+<% if @writewhitelist -%>
+WRITEWHITELIST="<%= @writewhitelist.join(' ') %>"
+<% end %>
+<% if @scriptwhitelist -%>
+SCRIPTWHITELIST="<%= @scriptwhitelist.join(' ') %>"
+<% end %>
+<% if @immutwhitelist -%>
+IMMUTWHITELIST="<%= @immutwhitelist.join(' ') %>"
+<% end %>
+<% if @immutable_set -%>
+IMMUTABLE_SET=<%= @immutable_set %>
+<% end %>
+<% if @allowhiddendir -%>
+ALLOWHIDDENDIR="<%= @allowhiddendir.join(' ') %>"
+<% end %>
+<% if @allowhiddenfile -%>
+ALLOWHIDDENFILE="<%= @allowhiddenfile.join(' ') %>"
+<% end %>
+<% if @allowprocdelfile -%>
+ALLOWPROCDELFILE="<%= @allowprocdelfile.join(' ') %>"
+<% end %>
+<% if @allowproclisten -%>
+ALLOWPROCLISTEN="<%= @allowproclisten.join(' ') %>"
+<% end %>
+<% if @allowpromiscif -%>
+ALLOWPROMISCIF="<%= @allowpromiscif.join(' ') %>"
+<% end %>
+<% if @scan_mode_dev -%>
+SCAN_MODE_DEV=<%= @scan_mode_dev %>
+<% end %>
+<% if @phalanx2_dirtest -%>
+PHALANX2_DIRTEST=<%= @phalanx2_dirtest %>
+<% end %>
+<% if @allowdevfile -%>
+ALLOWDEVFILE="<%= @allowdevfile.join(' ') %>"
+<% end %>
+<% if @inetd_conf_path -%>
+INETD_CONF_PATH=<%= @inetd_conf_path %>
+<% end %>
+<% if @inetd_allowed_svc -%>
+INETD_ALLOWED_SVC="<%= @inetd_allowed_svc.join(' ') %>"
+<% end %>
+<% if @xinetd_conf_path -%>
+XINETD_CONF_PATH=<%= @xinetd_conf_path %>
+<% end %>
+<% if @xinetd_allowed_svc -%>
+XINETD_ALLOWED_SVC="<%= @xinetd_allowed_svc.join(' ') %>"
+<% end %>
+<% if @startup_paths -%>
+STARTUP_PATHS="<%= @startup_paths.join(' ') %>"
+<% end %>
+<% if @password_file -%>
+PASSWORD_FILE=<%= @password_file %>
+<% end %>
+<% if @uid0_accounts -%>
+UID0_ACCOUNTS="<%= @uid0_accounts.join(' ') %>"
+<% end %>
+<% if @pwdless_accounts -%>
+PWDLESS_ACCOUNTS="<%= @pwdless_accounts.join(' ') %>"
+<% end %>
+<% if @syslog_config_file -%>
+SYSLOG_CONFIG_FILE="<%= @syslog_config_file.join(' ') %>"
+<% end %>
+<% if @allow_syslog_remote_logging -%>
+ALLOW_SYSLOG_REMOTE_LOGGING=<%= @allow_syslog_remote_logging %>
+<% end %>
+<% if @app_whitelist -%>
+APP_WHITELIST="<%= @app_whitelist.join(' ') %>"
+<% end %>
+<% if @suspscan_dirs -%>
+SUSPSCAN_DIRS="<%= @suspscan_dirs.join(' ') %>"
+<% end %>
+<% if @suspscan_temp -%>
+SUSPSCAN_TEMP=<%= @suspscan_temp %>
+<% end %>
+<% if @suspscan_maxsize -%>
+SUSPSCAN_MAXSIZE=<%= @suspscan_maxsize %>
+<% end %>
+<% if @suspscan_thresh -%>
+SUSPSCAN_THRESH=<%= @suspscan_thresh %>
+<% end %>
+<% if @port_whitelist -%>
+PORT_WHITELIST="<%= @port_whitelist.join(' ') %>"
+<% end %>
+<% if @os_version_file -%>
+OS_VERSION_FILE=<%= @os_version_file %>
+<% end %>
+<% if @rtkt_dir_whitelist -%>
+RTKT_DIR_WHITELIST="<%= @rtkt_dir_whitelist.join(' ') %>"
+<% end %>
+<% if @rtkt_file_whitelist -%>
+RTKT_FILE_WHITELIST="<%= @rtkt_file_whitelist.join(' ') %>"
+<% end %>
+<% if @shared_lib_whitelist -%>
+SHARED_LIB_WHITELIST="<%= @shared_lib_whitelist.join(' ') %>"
+<% end %>
+<% if @stat_cmd -%>
+STAT_CMD=<%= @stat_cmd %>
+<% end %>
+<% if @readlink_cmd -%>
+READLINK_CMD=<%= @readlink_cmd %>
+<% end %>
+<% if @epoch_date_cmd -%>
+EPOCH_DATE_CMD=<%= @epoch_date_cmd %>
+<% end %>
+<% if @modules_dir -%>
+MODULES_DIR=<%= @modules_dir %>
+<% end %>
+<% if @web_cmd -%>
+WEB_CMD="<%= @web_cmd %>"
+<% end %>
+<% if @warn_on_os_change -%>
+WARN_ON_OS_CHANGE=<%= @warn_on_os_change %>
+<% end %>
+<% if @updt_on_os_change -%>
+UPDT_ON_OS_CHANGE=<%= @updt_on_os_change %>
+<% end %>
+<% if @use_locking -%>
+USE_LOCKING=<%= @use_locking %>
+<% end %>
+<% if @lock_timeout -%>
+LOCK_TIMEOUT=<%= @lock_timeout %>
+<% end %>
+<% if @show_lock_msgs -%>
+SHOW_LOCK_MSGS=<%= @show_lock_msgs %>
+<% end %>
+<% if @scanrootkitmode -%>
+SCANROOTKITMODE=<%= @scanrootkitmode %>
+<% end %>
+<% if @unhide_tests -%>
+UNHIDE_TESTS="<%= @unhide_tests.join(' ') %>"
+<% end %>
+<% if @disable_unhide -%>
+DISABLE_UNHIDE=<%= @disable_unhide %>
+<% end %>
+<% if @installdir -%>
+INSTALLDIR=<%= @installdir %>
+<% end %>
