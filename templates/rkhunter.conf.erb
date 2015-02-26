@@ -2,15 +2,15 @@
 # Managed by Puppet. Modifications will be overwritten.
 # ****************************************************************************
 
-<% if @rotate_mirrors -%>
-ROTATE_MIRRORS=<%= @rotate_mirrors %>
+ROTATE_MIRRORS=<%= @rotate_mirrors ? 1 : 0 %>
+UPDATE_MIRRORS=<%= @update_mirrors ? 1 : 0 %>
+<% if @mirrors_mode == 'local' -%>
+MIRRORS_MODE=1
+<% elsif @mirrors_mode == 'remote' -%>
+MIRRORS_MODE=2
+<% else -%>
+MIRRORS_MODE=0
 <% end -%>
-<% if @update_mirrors -%>
-UPDATE_MIRRORS=<%= @update_mirrors %>
-<% end %>
-<% if @mirrors_mode -%>
-MIRRORS_MODE=<%= @mirrors_mode %>
-<% end %>
 <% if @mail-on-warning -%>
 MAIL-ON-WARNING="<%= @mail_on_warning.join(' ') %>"
 <% end %>
@@ -21,13 +21,13 @@ MAIL_CMD=<%= @mail_cmd %>
 TMPDIR=<%= @tmpdir %>
 <% end %>
 <% if @dbdir -%>
-DBDIR="<%= @dbdir.join(' ') %>"
+DBDIR=<%= @dbdir %>
 <% end %>
 <% if @scriptdir -%>
 SCRIPTDIR=<%= @scriptdir %>
 <% end %>
 <% if @bindir -%>
-BINDIR=<%= @bindir %>
+BINDIR="<%= @bindir.join(' ') %>"
 <% end %>
 <% if @language -%>
 LANGUAGE=<%= @language %>
@@ -38,27 +38,15 @@ UPDATE_LANG="<%= @update_lang.join(' ') %>"
 <% if @logfile -%>
 LOGFILE=<%= @logfile %>
 <% end %>
-<% if @append_log -%>
-APPEND_LOG=<%= @append_log %>
-<% end %>
-<% if @copy_log_on_error -%>
-COPY_LOG_ON_ERROR=<%= @copy_log_on_error %>
-<% end %>
+APPEND_LOG=<%= @append_log ? 1 : 0 %>
+COPY_LOG_ON_ERROR=<%= @copy_log_on_error ? 1 : 0 %>
 <% if @use_syslog -%>
 USE_SYSLOG=<%= @use_syslog %>
 <% end %>
-<% if @color_set2 -%>
-COLOR_SET2=<%= @color_set2 %>
-<% end %>
-<% if @auto_x_detect -%>
-AUTO_X_DETECT=<%= @auto_x_detect %>
-<% end %>
-<% if @whitelisted_is_white -%>
-WHITELISTED_IS_WHITE=<%= @whitelisted_is_white %>
-<% end %>
-<% if @allow_ssh_root_user -%>
+COLOR_SET2=<%= @color_set2 ? 1 : 0 %>
+AUTO_X_DETECT=<%= @auto_x_detect ? 1 : 0 %>
+WHITELISTED_IS_WHITE=<%= @whitelisted_is_white ? 1 : 0 %>
 ALLOW_SSH_ROOT_USER=<%= @allow_ssh_root_user %>
-<% end %>
 <% if @allow_ssh_prot_v1 -%>
 ALLOW_SSH_PROT_V1=<%= @allow_ssh_prot_v1 %>
 <% end %>
@@ -87,7 +75,7 @@ PKGMGR_NO_VRFY="<%= @pkgmgr_no_vrfy.join(' ') %>"
 IGNORE_PRELINK_DEP_ERR="<%= @ignore_prelink_dep_err.join(' ') %>"
 <% end %>
 <% if @use_sunsum -%>
-USE_SUNSUM=<%= @use_sunsum %>
+USE_SUNSUM=<%= @use_sunsum ? 1 : 0 %>
 <% end %>
 <% if @user_fileprop_files_dirs -%>
 USER_FILEPROP_FILES_DIRS="<%= @user_fileprop_files_dirs.join(' ') %>"
@@ -107,9 +95,7 @@ SCRIPTWHITELIST="<%= @scriptwhitelist.join(' ') %>"
 <% if @immutwhitelist -%>
 IMMUTWHITELIST="<%= @immutwhitelist.join(' ') %>"
 <% end %>
-<% if @immutable_set -%>
-IMMUTABLE_SET=<%= @immutable_set %>
-<% end %>
+IMMUTABLE_SET=<%= @immutable_set ? 1 : 0 %>
 <% if @allowhiddendir -%>
 ALLOWHIDDENDIR="<%= @allowhiddendir.join(' ') %>"
 <% end %>
@@ -128,9 +114,7 @@ ALLOWPROMISCIF="<%= @allowpromiscif.join(' ') %>"
 <% if @scan_mode_dev -%>
 SCAN_MODE_DEV=<%= @scan_mode_dev %>
 <% end %>
-<% if @phalanx2_dirtest -%>
-PHALANX2_DIRTEST=<%= @phalanx2_dirtest %>
-<% end %>
+PHALANX2_DIRTEST=<%= @phalanx2_dirtest ? 1 : 0 %>
 <% if @allowdevfile -%>
 ALLOWDEVFILE="<%= @allowdevfile.join(' ') %>"
 <% end %>
@@ -161,9 +145,7 @@ PWDLESS_ACCOUNTS="<%= @pwdless_accounts.join(' ') %>"
 <% if @syslog_config_file -%>
 SYSLOG_CONFIG_FILE="<%= @syslog_config_file.join(' ') %>"
 <% end %>
-<% if @allow_syslog_remote_logging -%>
-ALLOW_SYSLOG_REMOTE_LOGGING=<%= @allow_syslog_remote_logging %>
-<% end %>
+ALLOW_SYSLOG_REMOTE_LOGGING=<%= @allow_syslog_remote_logging ? 1 : 0 %>
 <% if @app_whitelist -%>
 APP_WHITELIST="<%= @app_whitelist.join(' ') %>"
 <% end %>
@@ -173,12 +155,8 @@ SUSPSCAN_DIRS="<%= @suspscan_dirs.join(' ') %>"
 <% if @suspscan_temp -%>
 SUSPSCAN_TEMP=<%= @suspscan_temp %>
 <% end %>
-<% if @suspscan_maxsize -%>
 SUSPSCAN_MAXSIZE=<%= @suspscan_maxsize %>
-<% end %>
-<% if @suspscan_thresh -%>
 SUSPSCAN_THRESH=<%= @suspscan_thresh %>
-<% end %>
 <% if @port_whitelist -%>
 PORT_WHITELIST="<%= @port_whitelist.join(' ') %>"
 <% end %>
@@ -209,30 +187,18 @@ MODULES_DIR=<%= @modules_dir %>
 <% if @web_cmd -%>
 WEB_CMD="<%= @web_cmd %>"
 <% end %>
-<% if @warn_on_os_change -%>
-WARN_ON_OS_CHANGE=<%= @warn_on_os_change %>
-<% end %>
-<% if @updt_on_os_change -%>
-UPDT_ON_OS_CHANGE=<%= @updt_on_os_change %>
-<% end %>
-<% if @use_locking -%>
-USE_LOCKING=<%= @use_locking %>
-<% end %>
-<% if @lock_timeout -%>
-LOCK_TIMEOUT=<%= @lock_timeout %>
-<% end %>
-<% if @show_lock_msgs -%>
-SHOW_LOCK_MSGS=<%= @show_lock_msgs %>
-<% end %>
+WARN_ON_OS_CHANGE=<%= @warn_on_os_change ? 1 : 0 %>
+UPDT_ON_OS_CHANGE=<%= @updt_on_os_change ? 1 : 0 %>
+USE_LOCKING=<%= @use_locking ? 1 : 0 %>
+LOCK_TIMEOUT=<%= @lock_timeout ? 1 : 0 %>
+SHOW_LOCK_MSGS=<%= @show_lock_msgs ? 1 : 0 %>
 <% if @scanrootkitmode -%>
-SCANROOTKITMODE=<%= @scanrootkitmode %>
+SCANROOTKITMODE=THOROUGH
 <% end %>
 <% if @unhide_tests -%>
 UNHIDE_TESTS="<%= @unhide_tests.join(' ') %>"
 <% end %>
-<% if @disable_unhide -%>
 DISABLE_UNHIDE=<%= @disable_unhide %>
-<% end %>
 <% if @installdir -%>
 INSTALLDIR=<%= @installdir %>
 <% end %>
