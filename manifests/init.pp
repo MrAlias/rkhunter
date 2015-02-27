@@ -33,7 +33,6 @@
 #
 class rkhunter (
   $ensure                      = 'present',
-  $package_name                = 'rkhunter',
   $rotate_mirrors              = true,
   $update_mirrors              = true,
   $mirrors_mode                = 'any',
@@ -216,15 +215,20 @@ class rkhunter (
 
   package { 'rkhunter':
     ensure => $ensure,
-    name   => $::rkhunter::params::package_name,
   }
 
   case $ensure {
     /^(present|installed|held|latest)$/: {
-      file { $::rkhunter::params::main_conf:
+      file { '/etc/rkhunter.conf':
         ensure  => file,
         content => template("${module_name}/rkhunter.conf.erb"),
         require => Package['rkhunter'],
+      }
+
+      exec { 'Check rkhunter config':
+        command     => '/usr/bin/rkhunter --config-check',
+        refreshonly => true,
+        subscribe   => File['/etc/rkhunter.conf'],
       }
     }
     default: {}
