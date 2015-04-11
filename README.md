@@ -99,17 +99,17 @@ Another possibility to update the PostgreSQL configuration files would be to jus
 
 #### `rotate_mirrors`
 
-Type: bool
+**Type**: `bool`
 
 #### `update_mirrors`
 
-Type: bool
+**Type**: `bool`
 
 #### `mirrors_mode`
 
-Type: string
+**Type**: `string`
 
-Valid values:
+**Valid values**:
 
 * `'any'`
 * `'local'`
@@ -117,69 +117,69 @@ Valid values:
 
 #### `mail_on_warning`
 
-Type: array
+**Type**: `array`
 
 #### `mail_cmd`
 
-Type: string
+**Type**: `string`
 
 #### `tmpdir`
 
-Type: string
+**Type**: `string`
 
 #### `dbdir`
 
-Type: string
+**Type**: `string`
 
 #### `scriptdir`
 
-Type: string
+**Type**: `string`
 
 #### `bindir`
 
-Type: array
+**Type**: `array`
 
 #### `language`
 
-Type: string
+**Type**: `string`
 
 #### `update_lang`
 
-Type: array
+**Type**: `array`
 
 #### `logfile`
 
-Type: string
+**Type**: `string`
 
 #### `append_log`
 
-Type: bool
+**Type**: `bool`
 
 #### `copy_log_on_error`
 
-Type: bool
+**Type**: `bool`
 
 #### `use_syslog`
 
-Type: string
+**Type**: `string`
 
 #### `color_set2`
 
-Type: bool
+**Type**: `bool`
 
 #### `auto_x_detect`
 
-Type: bool
+**Type**: `bool`
 
 #### `whitelisted_is_white`
 
-Type: bool
+**Type**: `bool`
 
 #### `allow_ssh_root_user`
 
-Type: string
+**Type**: `string`
 
-Valid values:
+**Valid values**:
 
 * `'yes'`
 * `'without-password'`
@@ -188,9 +188,9 @@ Valid values:
 
 #### `allow_ssh_prot_v1`
 
-Type: String
+**Type**: `string`
 
-Valid values:
+**Valid values**:
 
 * `'0'`
 * `'1'`
@@ -198,29 +198,29 @@ Valid values:
 
 #### `ssh_config_dir`
 
-Type: string
+**Type**: `string`
 
 #### `enable_tests`
 
-Type: array
+**Type**: `array`
 
 #### `disable_tests`
 
-Type: array
+**Type**: `array`
 
 #### `hash_func`
 
-Type: string
+**Type**: `string`
 
 #### `hash_fld_idx`
 
-Type: string of digits
+**Type**: `string` of digits
 
 #### `pkgmgr`
 
-Type: string
+**Type**: `string`
 
-Valid values:
+**Valid values**:
 
 * `''`, an empty sting
 * `'NONE'`
@@ -231,69 +231,69 @@ Valid values:
 
 #### `pkgmgr_no_vrfy`
 
-Type: array
+**Type**: `array`
 
 #### `ignore_prelink_dep_err`
 
-Type: array
+**Type**: `array`
 
 #### `use_sunsum`
 
-Type: bool
+**Type**: `bool`
 
 #### `user_fileprop_files_dirs`
 
-Type: array
+**Type**: `array`
 
 #### `existwhitelist`
 
-Type: array
+**Type**: `array`
 
 #### `attrwhitelist`
 
-Type: array
+**Type**: `array`
 
 #### `writewhitelist`
 
-Type: array
+**Type**: `array`
 
 #### `scriptwhitelist`
 
-Type: array
+**Type**: `array`
 
 #### `immutwhitelist`
 
-Type: array
+**Type**: `array`
 
 #### `immutable_set`
 
-Type: bool
+**Type**: `bool`
 
 #### `allowhiddendir`
 
-Type: array
+**Type**: `array`
 
 #### `allowhiddenfile`
 
-Type: array
+**Type**: `array`
 
 #### `allowprocdelfile`
 
-Type: array
+**Type**: `array`
 
 #### `allowproclisten`
 
-Type: array
+**Type**: `array`
 
 #### `allowpromiscif`
 
-Type: array
+**Type**: `array`
 
 #### `scan_mode_dev`
 
-Type: string
+**Type**: `string`
 
-Valid values:
+**Valid values**:
 
 * `''`, an empty string
 * `'THOROUGH'`
@@ -301,145 +301,145 @@ Valid values:
 
 #### `phalanx2_dirtest`
 
-Type: bool
+**Type**: `bool`
 
 #### `allowdevfile`
 
-Type: array
+**Type**: `array`
 
 #### `inetd_conf_path`
 
-Type: string
+**Type**: `string`
 
 #### `inetd_allowed_svc`
 
-Type: array
+**Type**: `array`
 
 #### `xinetd_conf_path`
 
-Type: string
+**Type**: `string`
 
 #### `xinetd_allowed_svc`
 
-Type: array
+**Type**: `array`
 
 #### `startup_paths`
 
-Type: array
+**Type**: `array`
 
 #### `password_file`
 
-Type: string
+**Type**: `string`
 
 #### `uid0_accounts`
 
-Type: array
+**Type**: `array`
 
 #### `pwdless_accounts`
 
-Type: array
+**Type**: `array`
 
 #### `syslog_config_file`
 
-Type: array
+**Type**: `array`
 
 #### `allow_syslog_remote_logging`
 
-Type: bool
+**Type**: `bool`
 
 #### `app_whitelist`
 
-Type: array
+**Type**: `array`
 
 #### `suspscan_dirs`
 
-Type: array
+**Type**: `array`
 
 #### `suspscan_temp`
 
-Type: string
+**Type**: `string`
 
 #### `suspscan_maxsize`
 
-Type: string of digits
+**Type**: `string` of digits
 
 #### `suspscan_thresh`
 
-Type: string of digits
+**Type**: `string` of digits
 
 #### `port_whitelist`
 
-Type: array
+**Type**: `array`
 
 #### `os_version_file`
 
-Type: string
+**Type**: `string`
 
 #### `rtkt_dir_whitelist`
 
-Type: array
+**Type**: `array`
 
 #### `rtkt_file_whitelist`
 
-Type: array
+**Type**: `array`
 
 #### `shared_lib_whitelist`
 
-Type: array
+**Type**: `array`
 
 #### `stat_cmd`
 
-Type: string
+**Type**: `string`
 
 #### `readlink_cmd`
 
-Type: string
+**Type**: `string`
 
 #### `epoch_date_cmd`
 
-Type: string
+**Type**: `string`
 
 #### `modules_dir`
 
-Type: string
+**Type**: `string`
 
 #### `web_cmd`
 
-Type: string
+**Type**: `string`
 
 #### `warn_on_os_change`
 
-Type: bool
+**Type**: `bool`
 
 #### `updt_on_os_change`
 
-Type: bool
+**Type**: `bool`
 
 #### `use_locking`
 
-Type: bool
+**Type**: `bool`
 
 #### `lock_timeout`
 
-Type: string of digits
+**Type**: `string` of digits
 
 #### `show_lock_msgs`
 
-Type: bool
+**Type**: `bool`
 
 #### `scanrootkitmode`
 
-Type: bool
+**Type**: `bool`
 
 #### `unhide_tests`
 
-Type: array
+**Type**: `array`
 
 #### `disable_unhide`
 
-Type: string
+**Type**: `string`
 
-Valid values:
+**Valid values**:
 
 * `'0'`
 * `'1'`
@@ -447,27 +447,27 @@ Valid values:
 
 #### `installdir`
 
-Type: string
+**Type**: `string`
 
 ### Resource: rkhunter::propupd
 
 #### `files`
 
-Files to have rkhunter update in its database.  If a string is given it is expected to be a single files or a space serperated list of files.
+**Description**: Files to have rkhunter update in its database.  If a string is given it is expected to be a single files or a space separated list of files.
 
-Type: string or list
+**Type**: `string` or `list`
 
 #### `directories`
 
-Directories to have rkhunter update in its database.  If a string is given it is expected to be a single directory or a space serperated list of directories.
+**Description**: Directories to have rkhunter update in its database.  If a string is given it is expected to be a single directory or a space separated list of directories.
 
-Type: string or list
+**Type**: `string` or `list`
 
 #### `packages`
 
-Packages to have rkhunter update in its database.  If a string is given it is expected to be a single package or a space serperated list of packages.
+**Description**: Packages to have rkhunter update in its database.  If a string is given it is expected to be a single package or a space separated list of packages.
 
-Type: string or list
+**Type**: `string` or `list`
 
 ## Limitations
 
