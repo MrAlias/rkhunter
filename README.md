@@ -8,6 +8,9 @@
     * [What rkhunter affects](#what-rkhunter-affects)
     * [Beginning with rkhunter](#beginning-with-rkhunter)
 4. [Usage - Configuration options and additional functionality](#usage)
+    * [Configuring RKHunter to not complain about its own configuration](#configuring-rkhunter-to-not-complain-about-its-own-configuration)
+    * [Updating RKHunter when puppet updates a managed resource](#updating-rkhunter-when-puppet-updates-a-managed-resource)
+    * [Updating RKHunter when files are changed](#updating-rkhunter-when-files-are-changed)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 
@@ -37,7 +40,7 @@ This will get you a basic installation of the rkhunter package with default valu
 
 ## Usage
 
-### Configuring RKHunter to not complain about its own configuration.
+### Configuring RKHunter to not complain about its own configuration
 
 When the rkhunter tool's configuration differs from what your package manager specifies it should be it will be reported as an error.  One way to prevent this would be to specify the main configuration file to the `pkgmgr_no_vrfy` when declaring the resource:
 
@@ -45,7 +48,7 @@ When the rkhunter tool's configuration differs from what your package manager sp
       pkgmgr_no_vrfy => ['/etc/rkhunter.conf'],
     }
 
-### Updating RKHunter when puppet updates a managed resource.
+### Updating RKHunter when puppet updates a managed resource
 
 RKHunter will complain if puppet updates a file, directory, or package without updating its database.  The `rkhunter::propupd` type is used to manage this.  For instance, if you have puppet managing the `sudo` package you can update rkhunter whenever the package updates:
 
@@ -56,6 +59,36 @@ RKHunter will complain if puppet updates a file, directory, or package without u
     rkhunter::propupd { 'sudo':
       packages  => 'sudo',
       subscribe => Package['sudo'],
+    }
+
+### Updating RKHunter when files are changed
+
+RKHunter will complain if files in its database are changed. If you have puppet update one of these sensitive files the `rkhunter::propupd` type can also be used to update RKHunter appropriately.
+
+For instance update the rkhunter database after modifying multiple PostgreSQL configuration files:
+
+    rkhunter::propupd { 'postgresql configs':
+      file      => [
+        '/etc/postgresql/9.1/main/pg_hba.conf',
+        '/etc/postgresql/9.1/main/pg_ident.conf',
+        '/etc/postgresql/9.1/main/postgresql.conf',
+      ],
+      subscribe => [
+        File['/etc/postgresql/9.1/main/pg_hba.conf'],
+        File['/etc/postgresql/9.1/main/pg_ident.conf'],
+        File['/etc/postgresql/9.1/main/postgresql.conf'],
+      ],
+    }
+
+Another possibility to update the PostgreSQL configuration files would be to just update the entire directory.
+
+    rkhunter::propupd { 'postgresql configs':
+      directory => '/etc/postgresql/9.1/main/',
+      subscribe => [
+        File['/etc/postgresql/9.1/main/pg_hba.conf'],
+        File['/etc/postgresql/9.1/main/pg_ident.conf'],
+        File['/etc/postgresql/9.1/main/postgresql.conf'],
+      ],
     }
 
 ## Reference
