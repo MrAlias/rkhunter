@@ -1,6 +1,6 @@
 {
   "name": "MrAlias-rkhunter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "MrAlias",
   "summary": "Manages the rkhunter tool's usage and configuration.",
   "license": "MIT",
