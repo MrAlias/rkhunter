@@ -2,37 +2,14 @@
 #
 # This class installs and configures rkhunter.
 #
-# === Parameters
-#
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
-#
-# === Examples
-#
-#  class { 'rkhunter':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
-#
 # === Authors
 #
 # Tyler Yahn <codingalias@gmail.com>
 #
 class rkhunter (
   $ensure                      = 'present',
+  $config_template             = undef,
+  $config_file                 = undef,
   $rotate_mirrors              = true,
   $update_mirrors              = true,
   $mirrors_mode                = 'any',
@@ -217,20 +194,32 @@ class rkhunter (
     ensure => $ensure,
   }
 
-  case $ensure {
-    /^(present|installed|held|latest)$/: {
-      file { '/etc/rkhunter.conf':
-        ensure  => file,
-        content => template("${module_name}/rkhunter.conf.erb"),
-        require => Package['rkhunter'],
-      }
-
-      exec { 'Check rkhunter config':
-        command     => '/usr/bin/rkhunter --config-check',
-        refreshonly => true,
-        subscribe   => File['/etc/rkhunter.conf'],
-      }
+  if (!$config_file) {
+    if (!$config_template) {
+      $content = template("${module_name}/rkhunter.conf.erb")
+    } else {
+      $content = template($config_template)
     }
-    default: {}
+    $source  = undef
+  } elsif (!$config_template) {
+    $source  = file($config_file)
+    $content = undef
+  } else {
+    fail('Cannot define both config_file and config_template')
+  }
+
+  if $ensure =~ /^(present|installed|held|latest)$/ {
+    file { '/etc/rkhunter.conf':
+      ensure  => file,
+      content => $content,
+      source  => $source,
+      require => Package['rkhunter'],
+    }
+
+    exec { 'Check rkhunter config':
+      command     => '/usr/bin/rkhunter --config-check',
+      refreshonly => true,
+      subscribe   => File['/etc/rkhunter.conf'],
+    }
   }
 }
