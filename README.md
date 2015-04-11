@@ -17,7 +17,7 @@ The rkhunter module enables management and configuration of the Unix-based tool,
 
 ## Module Description
 
-RKHunter (Rootkit Hunter) is a Unix-based tool that scans for rootkits, backdoors and possible local exploits. The rkhunter module allows you to manage the installation of the rkhunter pakage, configuration of how the tool is used, and managments automated usage of the tool.
+RKHunter (Rootkit Hunter) is a Unix-based tool that scans for rootkits, backdoors and possible local exploits. The rkhunter module allows you to manage the installation of the rkhunter pakage, configuration of how the tool is used, and manages automated usage of the tool.
 
 ## Setup
 
