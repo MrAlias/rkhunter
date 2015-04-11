@@ -62,15 +62,15 @@ RKHunter will complain if puppet updates a file, directory, or package without u
 
 ### Class: rkhunter
 
-#### rotate_mirrors
+#### `rotate_mirrors`
 
 Type: bool
 
-#### update_mirrors
+#### `update_mirrors`
 
 Type: bool
 
-#### mirrors_mode
+#### `mirrors_mode`
 
 Type: string
 
@@ -80,7 +80,7 @@ Valid values:
 * `'local'`
 * `'remote'`
 
-#### mail_on_warning
+#### `mail_on_warning`
 
 Type: array
 
@@ -187,7 +187,7 @@ Type: string
 
 Valid values:
 
-* `''`, and empty sting
+* `''`, an empty sting
 * `'NONE'`
 * `'RPM'`
 * `'DPKG'`
@@ -416,14 +416,23 @@ Type: string
 
 ### Resource: rkhunter::propupd
 
-#### files
-  String or list of files to have rkhunter update its stored hash for.  If a string is used it is expected to be a single files or a space serperated list of files.
+#### `files`
 
-#### directories
-  String or list of directories to have rkhunter update its stored hash for.  If a string is used it is expected to be a single directory or a space serperated list of directories.
+Files to have rkhunter update in its database.  If a string is given it is expected to be a single files or a space serperated list of files.
 
-#### packages
-  String or list of packages to have rkhunter update its stored hash for.  If a string is used it is expected to be a single package or a space serperated list of packages.
+Type: string or list
+
+#### `directories`
+
+Directories to have rkhunter update in its database.  If a string is given it is expected to be a single directory or a space serperated list of directories.
+
+Type: string or list
+
+#### `packages`
+
+Packages to have rkhunter update in its database.  If a string is given it is expected to be a single package or a space serperated list of packages.
+
+Type: string or list
 
 ## Limitations
 
