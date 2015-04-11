@@ -3,16 +3,18 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with rkhunter](#setup)
+2. [Module Description](#module-description)
+3. [Setup](#setup)
     * [What rkhunter affects](#what-rkhunter-affects)
     * [Beginning with rkhunter](#beginning-with-rkhunter)
-4. [Usage - Configuration options and additional functionality](#usage)
+4. [Usage](#usage)
     * [Configuring RKHunter to not complain about its own configuration](#configuring-rkhunter-to-not-complain-about-its-own-configuration)
     * [Updating RKHunter when puppet updates a managed resource](#updating-rkhunter-when-puppet-updates-a-managed-resource)
     * [Updating RKHunter when files are changed](#updating-rkhunter-when-files-are-changed)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
+5. [Reference](#reference)
+    * [Class: rkhunter](#class-rkhunter)
+    * [Resource: rkhunter::propupd](#resource-rkhunterpropupd)
+6. [Limitations](#limitations)
 
 ## Overview
 
