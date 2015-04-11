@@ -6,74 +6,62 @@
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with rkhunter](#setup)
     * [What rkhunter affects](#what-rkhunter-affects)
-    * [Setup requirements](#setup-requirements)
     * [Beginning with rkhunter](#beginning-with-rkhunter)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+The rkhunter module enables management and configuration of the Unix-based tool, rkhunter, with puppet.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+RKHunter (Rootkit Hunter) is a Unix-based tool that scans for rootkits, backdoors and possible local exploits. The rkhunter module allows you to manage the installation of the rkhunter pakage, configuration of how the tool is used, and managments automated usage of the tool.
 
 ## Setup
 
 ### What rkhunter affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* Package files for rkhunter.
+* Configuration files for rkhunter.
 
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
 
 ### Beginning with rkhunter
 
-The very basic steps needed for a user to get the module up and running.
+To get a basic setup of the rkhunter tool all you need is:
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+    include '::rkhunter'
+
+This will get you a basic installation of the rkhunter package with default values.
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+### Configuring RKHunter to not complain about its own configuration.
+
+### Updating RKHunter when puppet updates a managed resource.
+
+RKHunter will complain if puppet updates a file, directory, or package without updating its database.  The `rkhunter::propupd` type is used to manage this.  For instance, if you have puppet managing the `sudo` package you can update rkhunter whenever the package updates:
+
+    package { 'sudo':
+      ensure => latest,
+    }
+    
+    rkhunter::propupd { 'sudo':
+      packages  => 'sudo',
+      subscribe => Package['sudo'],
+    }
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+### Class: rkhunter
+
+### Resource: rkhunter::propupd
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Currently rkhunter is only actively tested with the following operating systems:
 
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+* Debian 7.x
+* CentOS 6.x
+* Ubuntu 14.04
