@@ -39,6 +39,12 @@ This will get you a basic installation of the rkhunter package with default valu
 
 ### Configuring RKHunter to not complain about its own configuration.
 
+When the rkhunter tool's configuration differs from what your package manager specifies it should be it will be reported as an error.  One way to prevent this would be to specify the main configuration file to the `pkgmgr_no_vrfy` when declaring the resource:
+
+    class { 'rkhunter':
+      pkgmgr_no_vrfy => ['/etc/rkhunter.conf'],
+    }
+
 ### Updating RKHunter when puppet updates a managed resource.
 
 RKHunter will complain if puppet updates a file, directory, or package without updating its database.  The `rkhunter::propupd` type is used to manage this.  For instance, if you have puppet managing the `sudo` package you can update rkhunter whenever the package updates:
