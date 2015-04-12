@@ -995,11 +995,15 @@ If both the C 'unhide', and Ruby 'unhide.rb', programs exist on the system, then
 
 ### Resource: rkhunter::propupd
 
+If `files`, `directories`, or `packages` are empty rkhunter will update its database for the entire system.
+
 #### `files`
 
 Files to have rkhunter update in its database.  If a string is given it is expected to be a single files or a space separated list of files.
 
 **Type**: `string` or `list`
+
+**Default value**: `[]`
 
 #### `directories`
 
@@ -1007,11 +1011,15 @@ Directories to have rkhunter update in its database.  If a string is given it is
 
 **Type**: `string` or `list`
 
+**Default value**: `[]`
+
 #### `packages`
 
 Packages to have rkhunter update in its database.  If a string is given it is expected to be a single package or a space separated list of packages.
 
 **Type**: `string` or `list`
+
+**Default value**: `[]`
 
 ## Limitations
 
