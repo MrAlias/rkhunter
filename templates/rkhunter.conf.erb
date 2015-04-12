@@ -76,6 +76,9 @@ USE_SUNSUM=<%= @use_sunsum ? 1 : 0 %>
 <% if @user_fileprop_files_dirs != [] -%>
 USER_FILEPROP_FILES_DIRS="<%= @user_fileprop_files_dirs.join(' ') %>"
 <% end -%>
+<% if @exclude_user_fileprop_files_dirs != [] -%>
+EXCLUDE_USER_FILEPROP_FILES_DIRS="<%= @exclude_user_fileprop_files_dirs.join(' ') %>"
+<% end -%>
 <% if @existwhitelist != [] -%>
 EXISTWHITELIST="<%= @existwhitelist.join(' ') %>"
 <% end -%>
@@ -195,6 +198,3 @@ SCANROOTKITMODE=THOROUGH
 UNHIDE_TESTS="<%= @unhide_tests.join(' ') %>"
 <% end -%>
 DISABLE_UNHIDE=<%= @disable_unhide %>
-<% if @installdir -%>
-INSTALLDIR=<%= @installdir %>
-<% end -%>
