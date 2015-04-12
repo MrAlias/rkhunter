@@ -141,7 +141,7 @@ Email a message to these addresses if a warning is found when the system is bein
 
 #### `mail_cmd`
 
-Specifies the mail command to use if mail_on_warning is set.
+Specifies the mail command to use if `mail_on_warning` is set.
 
 **Type**: `string`
 
@@ -223,7 +223,7 @@ Set to `true` if the log file is to be appended to whenever rkhunter is run. A v
 
 #### `copy_log_on_error`
 
-Set to `true` if the log file is to be copied when rkhunter finishes and an error or warning has occurred. The copied log file name will be appended with the current date and time (in YYYY-MM-DD_HH:MM:SS format).  For example:
+Set to `true` if the log file is to be copied when rkhunter finishes and an error or warning has occurred. The copied log file name will be appended with the current date and time (in YYYY-MM-DD\_HH:MM:SS format).  For example:
 
      rkhunter.log.2009-04-21_00:57:51
 
@@ -412,7 +412,7 @@ List of command pathnames to have rkhunter ignore any prelink dependency errors 
 
 #### `use_sunsum`
 
-If the `'SOLARIS'` package manager is used, then it is possible to use the checksum (hash) value stored for a file. However, this is only a 16-bit checksum, and as such is not nearly as secure as, for example, a SHA-2 value.  If this is set to `false`, then the checksum is not used and the hash function given by hash_func is used instead. To enable this option, set its value to `true`. The Solaris 'sum' command must be present on the system if this option is used.
+If the `'SOLARIS'` package manager is used, then it is possible to use the checksum (hash) value stored for a file. However, this is only a 16-bit checksum, and as such is not nearly as secure as, for example, a SHA-2 value.  If this is set to `false`, then the checksum is not used and the hash function given by `hash_func` is used instead. To enable this option, set its value to `true`. The Solaris 'sum' command must be present on the system if this option is used.
 
 **Type**: `bool`
 
@@ -981,7 +981,7 @@ If both the C 'unhide', and Ruby 'unhide.rb', programs exist on the system, then
 * If the value of this option is '0', then both programs will be executed if they are present.
 * A value of '1' will disable execution of the C 'unhide' program.
 * A value of '2' will disable the Ruby 'unhide.rb' program.
-* To disable both programs, then disable the 'hidden_procs' test.
+* To disable both programs, then disable the 'hidden\_procs' test.
 
 **Type**: `string`
 
