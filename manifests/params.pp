@@ -199,4 +199,9 @@ class rkhunter::params {
   $unhide_tests = ['sys']
 
   $disable_unhide = '1'
+
+  $install_dir = $::operatingsystem ? {
+    /(?i:RedHat|Centos|Scientific|Fedora|OracleLinux)/ => '/usr',
+    default                                            => '',
+  }
 }

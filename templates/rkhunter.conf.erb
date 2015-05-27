@@ -198,3 +198,6 @@ SCANROOTKITMODE=THOROUGH
 UNHIDE_TESTS="<%= @unhide_tests.join(' ') %>"
 <% end -%>
 DISABLE_UNHIDE=<%= @disable_unhide %>
+<% if @install_dir != '' -%>
+INSTALLDIR=<%= @install_dir %>
+<% end -%>
