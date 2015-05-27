@@ -93,7 +93,7 @@ class rkhunter::params {
 
   $user_fileprop_files_dirs = []
 
-  $exclude_user_fileprop_files_dirs []
+  $exclude_user_fileprop_files_dirs = []
 
   $existwhitelist = []
 
