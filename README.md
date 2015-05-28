@@ -209,15 +209,11 @@ Specifies the log file pathname. The file will be created if it does not initial
 
 **Type**: `string`
 
-**Default value**: `'/var/log/rkhunter.log'`
-
 #### `append_log`
 
 Set to `true` if the log file is to be appended to whenever rkhunter is run. A value of `false` will cause a new log file to be created whenever the program is run.
 
 **Type**: `bool`
-
-**Default value**: `false`
 
 #### `copy_log_on_error`
 
@@ -273,8 +269,6 @@ This is checked against the SSH configuration file 'PermitRootLogin' option. A w
 
 **Type**: `string`
 
-**Default value**: `no`
-
 **Valid values**:
 
 * `'yes'`
@@ -292,8 +286,6 @@ If the 'Protocol' option has not been set in the SSH configuration file, then a 
 A value of `'0'` indicates that the use of SSH-1 is not allowed.
 
 **Type**: `string`
-
-**Default value**: `'0'`
 
 **Valid values**:
 
@@ -322,8 +314,6 @@ List of tests that are to be performed. If `'all'` is specified all available te
 List of tests that are not to be performed. If `'none'` is specified no tests will be disabled.
 
 **Type**: `array`
-
-**Default value**: `['suspcan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps']`
 
 #### `hash_func`
 
@@ -374,8 +364,6 @@ For any file not part of a package, rkhunter will revert to using the `hash_cmd`
 **_NOTE_**: Whenever this option is changed `rkhunter --propupd` must be run.
 
 **Type**: `string`
-
-**Default value**: `''`
 
 **Valid values**:
 
@@ -478,8 +466,6 @@ List of files to allow being a script.
 
 **Type**: `array`
 
-**Default value**: `['/bin/egrep', '/bin/fgrep', '/bin/which', '/usr/bin/groups', '/usr/bin/ldd', '/usr/bin/lwp-request', '/usr/sbin/adduser', '/usr/sbin/prelink', '/sbin/ifup', '/sbin/ifdown']`
-
 #### `immutwhitelist`
 
 List of files to allow having the immutable attribute set.
@@ -502,15 +488,11 @@ List of hidden directories to whitelist.
 
 **Type**: `array`
 
-**Default value**: `[]`
-
 #### `allowhiddenfile`
 
 List of hidden files to whitelist.
 
 **Type**: `array`
-
-**Default value**: `[]`
 
 #### `allowprocdelfile`
 
@@ -573,8 +555,6 @@ This option is used to indicate if the Phalanx2 test is to perform a basic check
 List of files allowed to be present in the '/dev' directory, and not regarded as suspicious.
 
 **Type**: `array`
-
-**Default value**: `[]`
 
 #### `inetd_conf_path`
 
@@ -821,8 +801,6 @@ a colon appended. For example:
 **_NOTE_**: It is recommended that if you whitelist any files, then you include those files in the file properties check. See the `user_fileprop_files_dirs` configuration option.
 
 **Type**: `array`
-
-**Default value**: `[]`
 
 #### `shared_lib_whitelist`
 
