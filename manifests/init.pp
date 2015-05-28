@@ -8,8 +8,7 @@
 #
 class rkhunter (
   $ensure                           = $rkhunter::params::ensure,
-  $config_template                  = $rkhunter::params::config_template,
-  $config_file                      = $rkhunter::params::config_file,
+  $config_content                   = $rkhunter::params::config_content,
   $rotate_mirrors                   = $rkhunter::params::rotate_mirrors,
   $update_mirrors                   = $rkhunter::params::update_mirrors,
   $mirrors_mode                     = $rkhunter::params::mirrors_mode,
@@ -179,32 +178,20 @@ class rkhunter (
     ensure => $ensure,
   }
 
-  if (!$config_file) {
-    if (!$config_template) {
-      $content = template("${module_name}/rkhunter.conf.erb")
-    } else {
-      $content = template($config_template)
-    }
-    $source  = undef
-  } elsif (!$config_template) {
-    $source  = file($config_file)
-    $content = undef
-  } else {
-    fail('Cannot define both config_file and config_template')
+  $_file_ensure = $ensure ? {
+    /^(present|installed|held|latest)$/ => 'file',
+    default                             => 'absent',
   }
 
-  if $ensure =~ /^(present|installed|held|latest)$/ {
-    file { '/etc/rkhunter.conf':
-      ensure  => file,
-      content => $content,
-      source  => $source,
-      require => Package['rkhunter'],
-    }
+  file { '/etc/rkhunter.conf':
+    ensure  => $_file_ensure,
+    content => $config_content,
+    require => Package['rkhunter'],
+  }
 
-    exec { 'Check rkhunter config':
-      command     => '/usr/bin/rkhunter --config-check',
-      refreshonly => true,
-      subscribe   => File['/etc/rkhunter.conf'],
-    }
+  exec { 'Check rkhunter config':
+    command     => '/usr/bin/rkhunter --config-check',
+    refreshonly => true,
+    subscribe   => File['/etc/rkhunter.conf'],
   }
 }

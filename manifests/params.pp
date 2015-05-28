@@ -24,9 +24,7 @@ class rkhunter::params {
 
   $ensure = 'present'
 
-  $config_template = undef
-
-  $config_file = undef
+  $config_content = template("${module_name}/rkhunter.conf.erb")
 
   $rotate_mirrors = true
 
