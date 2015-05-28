@@ -145,7 +145,6 @@ class rkhunter::params {
       '/usr/bin/whatis',
       '/usr/bin/ldd',
       '/usr/bin/groups',
-      '/usr/bin/GET',
       '/sbin/ifup',
       '/sbin/ifdown',
     ],
