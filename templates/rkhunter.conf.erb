@@ -89,7 +89,7 @@ ATTRWHITELIST="<%= @attrwhitelist.join(' ') %>"
 WRITEWHITELIST="<%= @writewhitelist.join(' ') %>"
 <% end -%>
 <% @scriptwhitelist.each do |item| -%>
-SCRIPTWHITELIST="<%= item %>"
+SCRIPTWHITELIST=<%= item %>
 <% end -%>
 <% if @immutwhitelist != [] -%>
 IMMUTWHITELIST="<%= @immutwhitelist.join(' ') %>"
