@@ -24,8 +24,6 @@ class rkhunter::params {
 
   $ensure = 'present'
 
-  $config_content = template("${module_name}/rkhunter.conf.erb")
-
   $rotate_mirrors = true
 
   $update_mirrors = true
@@ -302,4 +300,8 @@ class rkhunter::params {
     'RedHat' => '/usr',
     default  => '',
   }
+
+  # This needs to be last. All variables need to be set before the template
+  # function renders the template.
+  $config_content = template("${module_name}/rkhunter.conf.erb")
 }
