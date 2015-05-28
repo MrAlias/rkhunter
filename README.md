@@ -97,6 +97,30 @@ Another possibility to update the PostgreSQL configuration files would be to jus
 
 ### Class: rkhunter
 
+#### `ensure`
+
+Specifies what state rkhunter should be in.
+
+**Type**: `string`
+
+**Default value**: `'present'`
+
+**Valid values**:
+
+* `'present'` or `'installed'`
+* `'latest'`
+* `'held'`
+* `'absent'`
+* `'purged'`
+
+#### `config_content`
+
+Specifies the content of the rkhunter.conf file.
+
+**Type**: `string`
+
+**Default value**: Module provided ERB template.
+
 #### `rotate_mirrors`
 
 If this option is set to `true`, it specifies that the mirrors file ('mirrors.dat'), which is used when the '--update' and '--versioncheck' options are used, is to be rotated. Rotating the entries in the file allows a basic form of load-balancing between the mirror sites whenever the above options are used.
