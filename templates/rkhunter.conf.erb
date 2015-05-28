@@ -24,14 +24,14 @@ DBDIR=<%= @dbdir %>
 <% if @scriptdir != '' -%>
 SCRIPTDIR=<%= @scriptdir %>
 <% end -%>
-<% if @bindir != [] -%>
-BINDIR="<%= @bindir.join(' ') %>"
+<% @bindir.each do |item| -%>
+BINDIR=<% item %>
 <% end -%>
 <% if @language != '' -%>
 LANGUAGE=<%= @language %>
 <% end -%>
-<% if @update_lang != [] -%>
-UPDATE_LANG="<%= @update_lang.join(' ') %>"
+<% @update_lang.each do |item| -%>
+UPDATE_LANG=<% item %>
 <% end -%>
 <% if @logfile != '' -%>
 LOGFILE=<%= @logfile %>
@@ -49,11 +49,11 @@ ALLOW_SSH_PROT_V1=<%= @allow_ssh_prot_v1 %>
 <% if @ssh_config_dir != '' -%>
 SSH_CONFIG_DIR=<%= @ssh_config_dir %>
 <% end -%>
-<% if @enable_tests != [] -%>
-ENABLE_TESTS="<%= @enable_tests.join(' ') %>"
+<% @enable_tests.each do |item| -%>
+ENABLE_TESTS=<% item %>
 <% end -%>
-<% if @disable_tests != [] -%>
-DISABLE_TESTS="<%= @disable_tests.join(' ') %>"
+<% @disable_tests.each do |item| -%>
+DISABLE_TESTS=<% item %>
 <% end -%>
 <% if @hash_func != '' -%>
 HASH_FUNC="<%= @hash_func %>"
@@ -64,112 +64,112 @@ HASH_FLD_IDX=<%= @hash_fld_idx %>
 <% if @pkgmgr != '' -%>
 PKGMGR=<%= @pkgmgr %>
 <% end -%>
-<% if @pkgmgr_no_vrfy != [] -%>
-PKGMGR_NO_VRFY="<%= @pkgmgr_no_vrfy.join(' ') %>"
+<% @pkgmgr_no_vrfy.each do |item| -%>
+PKGMGR_NO_VRFY=<% item %>
 <% end -%>
-<% if @ignore_prelink_dep_err != [] -%>
-IGNORE_PRELINK_DEP_ERR="<%= @ignore_prelink_dep_err.join(' ') %>"
+<% @ignore_prelink_dep_err.each do |item| -%>
+IGNORE_PRELINK_DEP_ERR=<% item %>
 <% end -%>
 <% if @use_sunsum -%>
 USE_SUNSUM=<%= @use_sunsum ? 1 : 0 %>
 <% end -%>
-<% if @user_fileprop_files_dirs != [] -%>
-USER_FILEPROP_FILES_DIRS="<%= @user_fileprop_files_dirs.join(' ') %>"
+<% @user_fileprop_files_dirs.each do |item| -%>
+USER_FILEPROP_FILES_DIRS=<% item %>
 <% end -%>
-<% if @exclude_user_fileprop_files_dirs != [] -%>
-EXCLUDE_USER_FILEPROP_FILES_DIRS="<%= @exclude_user_fileprop_files_dirs.join(' ') %>"
+<% @exclude_user_fileprop_files_dirs.each do |item| -%>
+EXCLUDE_USER_FILEPROP_FILES_DIRS=<% item %>
 <% end -%>
-<% if @existwhitelist != [] -%>
-EXISTWHITELIST="<%= @existwhitelist.join(' ') %>"
+<% @existwhitelist.each do |item| -%>
+EXISTWHITELIST=<% item %>
 <% end -%>
-<% if @attrwhitelist != [] -%>
-ATTRWHITELIST="<%= @attrwhitelist.join(' ') %>"
+<% @attrwhitelist.each do |item| -%>
+ATTRWHITELIST=<% item %>
 <% end -%>
-<% if @writewhitelist != [] -%>
-WRITEWHITELIST="<%= @writewhitelist.join(' ') %>"
+<% @writewhitelist.each do |item| -%>
+WRITEWHITELIST=<% item %>
 <% end -%>
 <% @scriptwhitelist.each do |item| -%>
 SCRIPTWHITELIST=<%= item %>
 <% end -%>
-<% if @immutwhitelist != [] -%>
-IMMUTWHITELIST="<%= @immutwhitelist.join(' ') %>"
+<% @immutwhitelist.each do |item| -%>
+IMMUTWHITELIST=<%= item %>
 <% end -%>
 IMMUTABLE_SET=<%= @immutable_set ? 1 : 0 %>
-<% if @allowhiddendir != [] -%>
-ALLOWHIDDENDIR="<%= @allowhiddendir.join(' ') %>"
+<% @allowhiddendir.each do |item| -%>
+ALLOWHIDDENDIR=<% item %>
 <% end -%>
-<% if @allowhiddenfile != [] -%>
-ALLOWHIDDENFILE="<%= @allowhiddenfile.join(' ') %>"
+<% @allowhiddenfile.each do |item| -%>
+ALLOWHIDDENFILE=<% item %>
 <% end -%>
-<% if @allowprocdelfile != [] -%>
-ALLOWPROCDELFILE="<%= @allowprocdelfile.join(' ') %>"
+<% @allowprocdelfile.each do |item| -%>
+ALLOWPROCDELFILE=<% item %>
 <% end -%>
-<% if @allowproclisten != [] -%>
-ALLOWPROCLISTEN="<%= @allowproclisten.join(' ') %>"
+<% @allowproclisten.each do |item| -%>
+ALLOWPROCLISTEN=<% item %>
 <% end -%>
-<% if @allowpromiscif != [] -%>
-ALLOWPROMISCIF="<%= @allowpromiscif.join(' ') %>"
+<% @allowpromiscif.each do |item| -%>
+ALLOWPROMISCIF=<% item %>
 <% end -%>
 <% if @scan_mode_dev != '' -%>
 SCAN_MODE_DEV=<%= @scan_mode_dev %>
 <% end -%>
 PHALANX2_DIRTEST=<%= @phalanx2_dirtest ? 1 : 0 %>
-<% if @allowdevfile != [] -%>
-ALLOWDEVFILE="<%= @allowdevfile.join(' ') %>"
+<% @allowdevfile.each do |item| -%>
+ALLOWDEVFILE=<% item %>
 <% end -%>
 <% if @inetd_conf_path != '' -%>
 INETD_CONF_PATH=<%= @inetd_conf_path %>
 <% end -%>
-<% if @inetd_allowed_svc != [] -%>
-INETD_ALLOWED_SVC="<%= @inetd_allowed_svc.join(' ') %>"
+<% @inetd_allowed_svc.each do |item| -%>
+INETD_ALLOWED_SVC=<% item %>
 <% end -%>
 <% if @xinetd_conf_path != '' -%>
 XINETD_CONF_PATH=<%= @xinetd_conf_path %>
 <% end -%>
-<% if @xinetd_allowed_svc != [] -%>
-XINETD_ALLOWED_SVC="<%= @xinetd_allowed_svc.join(' ') %>"
+<% @xinetd_allowed_svc.each do |item| -%>
+XINETD_ALLOWED_SVC=<% item %>
 <% end -%>
-<% if @startup_paths != [] -%>
-STARTUP_PATHS="<%= @startup_paths.join(' ') %>"
+<% @startup_paths.each do |item| -%>
+STARTUP_PATHS=<% item %>
 <% end -%>
 <% if @password_file != '' -%>
 PASSWORD_FILE=<%= @password_file %>
 <% end -%>
-<% if @uid0_accounts != [] -%>
-UID0_ACCOUNTS="<%= @uid0_accounts.join(' ') %>"
+<% @uid0_accounts.each do |item| -%>
+UID0_ACCOUNTS=<% item %>
 <% end -%>
-<% if @pwdless_accounts != [] -%>
-PWDLESS_ACCOUNTS="<%= @pwdless_accounts.join(' ') %>"
+<% @pwdless_accounts.each do |item| -%>
+PWDLESS_ACCOUNTS=<% item %>
 <% end -%>
-<% if @syslog_config_file != [] -%>
-SYSLOG_CONFIG_FILE="<%= @syslog_config_file.join(' ') %>"
+<% @syslog_config_file.each do |item| -%>
+SYSLOG_CONFIG_FILE=<% item %>
 <% end -%>
 ALLOW_SYSLOG_REMOTE_LOGGING=<%= @allow_syslog_remote_logging ? 1 : 0 %>
-<% if @app_whitelist != [] -%>
-APP_WHITELIST="<%= @app_whitelist.join(' ') %>"
+<% @app_whitelist.each do |item| -%>
+APP_WHITELIST=<% item %>
 <% end -%>
-<% if @suspscan_dirs != [] -%>
-SUSPSCAN_DIRS="<%= @suspscan_dirs.join(' ') %>"
+<% @suspscan_dirs.each do |item| -%>
+SUSPSCAN_DIRS=<% item %>
 <% end -%>
 <% if @suspscan_temp -%>
 SUSPSCAN_TEMP=<%= @suspscan_temp %>
 <% end -%>
 SUSPSCAN_MAXSIZE=<%= @suspscan_maxsize %>
 SUSPSCAN_THRESH=<%= @suspscan_thresh %>
-<% if @port_whitelist != [] -%>
-PORT_WHITELIST="<%= @port_whitelist.join(' ') %>"
+<% @port_whitelist.each do |item| -%>
+PORT_WHITELIST=<% item %>
 <% end -%>
 <% if @os_version_file != '' -%>
 OS_VERSION_FILE=<%= @os_version_file %>
 <% end -%>
-<% if @rtkt_dir_whitelist != [] -%>
-RTKT_DIR_WHITELIST="<%= @rtkt_dir_whitelist.join(' ') %>"
+<% @rtkt_dir_whitelist.each do |item| -%>
+RTKT_DIR_WHITELIST=<% item %>
 <% end -%>
-<% if @rtkt_file_whitelist != [] -%>
-RTKT_FILE_WHITELIST="<%= @rtkt_file_whitelist.join(' ') %>"
+<% @rtkt_file_whitelist.each do |item| -%>
+RTKT_FILE_WHITELIST=<% item %>
 <% end -%>
-<% if @shared_lib_whitelist != [] -%>
-SHARED_LIB_WHITELIST="<%= @shared_lib_whitelist.join(' ') %>"
+<% @shared_lib_whitelist.each do |item| -%>
+SHARED_LIB_WHITELIST=<% item %>
 <% end -%>
 <% if @stat_cmd != '' -%>
 STAT_CMD=<%= @stat_cmd %>
@@ -194,8 +194,8 @@ SHOW_LOCK_MSGS=<%= @show_lock_msgs ? 1 : 0 %>
 <% if @scanrootkitmode -%>
 SCANROOTKITMODE=THOROUGH
 <% end -%>
-<% if @unhide_tests != [] -%>
-UNHIDE_TESTS="<%= @unhide_tests.join(' ') %>"
+<% @unhide_tests.each do |item| -%>
+UNHIDE_TESTS=<% item %>
 <% end -%>
 DISABLE_UNHIDE=<%= @disable_unhide %>
 <% if @install_dir != '' -%>
