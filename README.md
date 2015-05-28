@@ -155,8 +155,6 @@ Specifies the directory to use for temporary files.
 
 **Type**: `string`
 
-**Default value**: `'/var/lib/rkhunter/tmp'`
-
 #### `dbdir`
 
 Specifies the database directory to use.
