@@ -12,7 +12,7 @@ MIRRORS_MODE=2
 MIRRORS_MODE=0
 <% end -%>
 <% @mail_on_warning.each do |item| -%>
-MAIL-ON-WARNING=item
+MAIL-ON-WARNING=<%= item %>
 <% end -%>
 <% if @mail_cmd != '' -%>
 MAIL_CMD=<%= @mail_cmd %>
