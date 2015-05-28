@@ -18,8 +18,8 @@
 # Tyler Yahn <codingalias@gmail.com>
 #
 class rkhunter::params {
-  if $::osfamily != 'Debian' or $::osfamily != 'RedHat' {
-    fail("${::operatingsystem} is not supported by ${module_name}")
+  if $::osfamily != 'Debian' and $::osfamily != 'RedHat' {
+    fail("${module_name} does not support the ${::operatingsystem} OS.")
   }
 
   $ensure = 'present'
