@@ -991,13 +991,11 @@ If both the C 'unhide', and Ruby 'unhide.rb', programs exist on the system, then
 * `'1'`
 * `'2'`
 
-#### `install_dir`
+#### `installdir`
 
 Specifies the location where the main rkhunter instal directory is.
 
 **Type**: `string`
-
-**Default value**: `''`
 
 ### Resource: rkhunter::propupd
 

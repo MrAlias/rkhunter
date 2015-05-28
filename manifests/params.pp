@@ -200,7 +200,7 @@ class rkhunter::params {
 
   $disable_unhide = '1'
 
-  $install_dir = $::operatingsystem ? {
+  $installdir = $::operatingsystem ? {
     /(?i:RedHat|Centos|Scientific|Fedora|OracleLinux)/ => '/usr',
     default                                            => '',
   }

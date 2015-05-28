@@ -88,7 +88,7 @@ class rkhunter (
   $scanrootkitmode                  = $rkhunter::params::scanrootkitmode,
   $unhide_tests                     = $rkhunter::params::unhide_tests,
   $disable_unhide                   = $rkhunter::params::disable_unhide,
-  $install_dir                      = $rkhunter::params::install_dir,
+  $installdir                       = $rkhunter::params::installdir,
 ) inherits rkhunter::params {
   validate_bool($rotate_mirrors)
   validate_bool($update_mirrors)
