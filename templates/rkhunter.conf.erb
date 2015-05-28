@@ -11,7 +11,9 @@ MIRRORS_MODE=2
 <% else -%>
 MIRRORS_MODE=0
 <% end -%>
-MAIL-ON-WARNING="<%= @mail_on_warning.join(' ') %>"
+<% @mail_on_warning.each do |item| -%>
+MAIL-ON-WARNING=item
+<% end -%>
 <% if @mail_cmd != '' -%>
 MAIL_CMD=<%= @mail_cmd %>
 <% end -%>
